@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Resume Analyzer & Job Matcher</title>
+  <!-- SEO Tags -->
+  <meta name="description" content="Optimize your resume for ATS systems, discover skill gaps, match with recommended jobs, and close gaps with personalized learning paths.">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+  <!-- Background glow blobs -->
+  <div class="glow-bg">
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-indigo"></div>
+    <div class="blob blob-teal"></div>
+  </div>
+
+  <!-- Main Layout Container -->
+  <div id="app-container" class="layout-hidden">
+    <!-- Sidebar Navigation -->
+    <aside id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <i data-lucide="cpu"></i>
+        </div>
+        <span class="brand-name">ResuMatch <span class="brand-accent">AI</span></span>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#landing" class="nav-item" id="nav-landing">
+          <i data-lucide="home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#upload" class="nav-item" id="nav-upload">
+          <i data-lucide="file-up"></i>
+          <span>Upload Resume</span>
+        </a>
+        <a href="#dashboard" class="nav-item" id="nav-dashboard">
+          <i data-lucide="bar-chart-3"></i>
+          <span>Score Dashboard</span>
+        </a>
+        <a href="#skills" class="nav-item" id="nav-skills">
+          <i data-lucide="brain"></i>
+          <span>Skills Detected</span>
+        </a>
+        <a href="#jobs" class="nav-item" id="nav-jobs">
+          <i data-lucide="briefcase"></i>
+          <span>Recommended Jobs</span>
+        </a>
+        <a href="#gap" class="nav-item" id="nav-gap">
+          <i data-lucide="git-pull-request"></i>
+          <span>Skill Gaps</span>
+        </a>
+        <a href="#learning" class="nav-item" id="nav-learning">
+          <i data-lucide="graduation-cap"></i>
+          <span>Learning Path</span>
+        </a>
+        <a href="#profile" class="nav-item" id="nav-profile">
+          <i data-lucide="user"></i>
+          <span>Profile / Settings</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-badge" id="user-profile-badge">
+          <div class="user-avatar" id="user-avatar-initials">JS</div>
+          <div class="user-info">
+            <span class="user-name" id="user-display-name">John Doe</span>
+            <span class="user-email" id="user-display-email">john@example.com</span>
+          </div>
+        </div>
+        <button id="logout-button" class="btn btn-icon btn-logout" title="Log Out">
+          <i data-lucide="log-out"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+      <!-- Top header bar for pages -->
+      <header id="top-bar">
+        <div class="mobile-menu-toggle" id="mobile-toggle">
+          <i data-lucide="menu"></i>
+        </div>
+        <h1 id="page-title" class="page-title-heading">Landing Page</h1>
+        <div class="theme-toggle-container">
+          <button id="theme-toggle" class="btn btn-icon btn-theme" title="Toggle Theme">
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Viewport where different pages will mount -->
+      <div id="viewport" class="viewport-container"></div>
+    </main>
+  </div>
+
+  <!-- Root Auth Gateway Container (Shown when logged out) -->
+  <div id="auth-container" class="auth-gate-container">
+    <!-- Will be filled by AuthView dynamically -->
+  </div>
+
+  <!-- Global Modal Container for Job Details / Confirmations -->
+  <div id="modal-container" class="modal-overlay hidden">
+    <div class="modal-content glass-card">
+      <button id="modal-close" class="modal-close-btn">
+        <i data-lucide="x"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification Banner -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Application Entry script -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
